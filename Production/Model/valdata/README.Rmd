@@ -1,0 +1,73 @@
+---
+title: "README"
+author: "Will Burton"
+date: "June 2, 2016"
+output: html_document
+---
+
+
+#**valdata**  
+___
+  
+####The purpose of the  **valdata** package  is to **Validate Data** we use for UI modeling.  
+  
+There are three main validation methods that can be applied using this package:  
+  
+ Method 1. Check that the data loaded in contains values within an acceptable range, and is of the expected class  
+ Method 2. Compare the data of one state to another state, or group of states  
+ Method 3. Check for concept drift. Is the underlying data the model is built on changing over time?
+  
+___
+**Method 1.**  
+**Description:**  
+When data is pulled, each numeric variable (non-categorical) is tested to see if it is within the set acceptable range. All variable         classes are checked to make sure they are as expected, and the dimensions are displayed.  
+  
+Functions used:  
+
+ * pull_data() - connects to the NRDB in the server of the state you are working in and loads data used to create claimant risk scores. Data     is loaded into data frames and saved in the global environment  
+ * check_classes_match() - used within pull_data(), checks classes match as expected  
+ * dimension()- used within pull_data(), displays data frame dimensions  
+ * check_var_range() - used within pull_data(), checks variables are within a predetermined acceptable range. The variables that contain        values outside the acceptable range are saved in a data frame named error_tbl  
+  
+___
+**Method 2.**  
+**Description:**  
+Compare data in one state to data in another state, or states. The differences for categorical variables can be visualized in bar plots, along with tables showing category percents. The differences in the numeric variables are displayed with density plots, along with tables containing statistics that describe the data distribution.  
+  
+Functions used:  
+  
+ * compare_data() - see description above  
+ * similarity_measures() - calculates the bhattacharyya coefficient and the shared area under two probability density functions
+  
+___
+**Method 3.**  
+**Description:**  
+  
+___
+**Important tables:**  
+1. char_stats_tbl - data frame containing summary statistics of categorical variables that are used for risk scoring  
+2. num_stats_tbl  - data frame containing summary statistics of numeric variables that are used for risk scoring  
+3. density_tbl - data frame containing information needed to plot density functions for each variable in the num_stats_tbl  
+4. dictionary - This is created when the package is loaded. It contains useful information about each variable tested in valdata  
+5. error_tbl - This is created if there were errors in the data when the pull data function is run. It contains variable specific errors.    
+  
+___
+
+**Valdata workflow:**  
+when validating a new states data:
+
+ 1. generate_new_stats(st_initials = "new state initials")  
+    i)  checks to see if the variables are within some the acceptable range  
+    ii) calculates and appends new state summary statistics to each table  
+ 
+ 2. compare_data(st_initials = c("st initials1", "st initials2", ...), numeric = T, char = T)  
+    i) visualize the differences  
+  
+<br>
+To save a new states stats to the existing table:  
+  
+generate_new_stats(st_initials = "new state initials", save = TRUE)  
+You must be in the valdata directory: setwd(some_filepath/valdata)
+
+
+

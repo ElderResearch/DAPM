@@ -1,0 +1,25 @@
+Package: valdata
+Type: Package
+Title: Validate data in a new state
+Version: 0.0.0.9000
+Author: WILL
+Maintainer: someone <x@xx.com>
+Description: Validate data in a new state in three ways: 1: Test to make sure
+    the data is within some acceptable range. ie. no negative ages 2. Compare the
+    data in a new state to data in a previous state. 3. Check for concept drift in a
+    state. Has the structure of the data changed over time?
+    TO use in a new state run functions generate_new_stats() --> compare_data()
+Depends:
+    R (>= 3.2.1)
+License: What license is it under?
+LazyData: TRUE
+Imports:
+    moments,
+    APM,
+    devtools,
+    RJDBC,
+    tidyr,
+    dplyr,
+    ggplot2
+RoxygenNote: 5.0.1
+

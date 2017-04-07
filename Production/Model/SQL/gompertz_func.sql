@@ -1,0 +1,21 @@
+--
+-- The `gompertz` function used in the QWR cross check metric.
+-- It is a stored function in the `nrd` DB.
+--
+-- Written By: Wayne Folta
+--
+--  This implements a Gompertz curve (not to be confused with a Gompertz distribution),
+--  which is a generalization of a logit curve, and provides a way to have bounded scores with
+--  a useful, smooth logit-like shape:
+--
+--  100 * exp (-5 * exp (-0.0009 * x))
+--  ^           ^         ^
+--  |           |         |
+--  a=100       b=5       c=0.0009
+--
+--  Where:
+--         a is asymptote (max)
+--         b is x-axis shift
+--         c is growth rate
+
+SELECT TRUNC (a1 * EXP (TRUNC (LEAST (GREATEST (-a2 * EXP (TRUNC (LEAST (GREATEST (-a3 * v , -100), 100), 10)), -100), 100), 10)), 2) ;

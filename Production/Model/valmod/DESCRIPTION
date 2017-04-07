@@ -1,0 +1,19 @@
+Package: valmod
+Type: Package
+Title: Validate Domino Modules
+Version: 0.2
+Date: 2016-05-17
+Author: Elder Research
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: This package tests the performance of models in the APM package. It
+    produces data frames and plots that summarize performance characteristics.
+License: What license is it under?
+LazyData: TRUE
+Imports:
+    dplyr,
+    ggplot2,
+    zoo,
+    grid
+Depends:
+    APM
+RoxygenNote: 5.0.1

@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>Get USERREPOSITORY</name>
+    <description/>
+    <extended_description/>
+    <trans_version>0.1</trans_version>
+    <trans_type>Normal</trans_type>
+    <trans_status>1</trans_status>
+    <directory>&#x2f;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>Y</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>Y</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2015&#x2f;06&#x2f;05 14&#x3a;28&#x3a;32.802</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2015&#x2f;06&#x2f;05 14&#x3a;28&#x3a;32.802</modified_date>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>APM</name>
+    <server>&#x24;&#x7b;APM_SERVER_URL&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;APM_DB_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;APM_DB_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;APM_DB_USERNAME&#x7d;</username>
+    <password>&#x24;&#x7b;APM_DB_PASSWORD&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;APM_DB_PORT&#x7d;</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>APM_DIRECT</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>sksapmdev</database>
+    <port>5432</port>
+    <username>sksapmdev</username>
+    <password>Encrypted 2be98afc86aa7f297a00aeb74db84fd8b</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>CLIENT</name>
+    <server>&#x24;&#x7b;CLIENT_SERVER_URL&#x7d;</server>
+    <type>MSSQLNATIVE</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;CLIENT_DB_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;CLIENT_DB_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;CLIENT_DB_USERNAME&#x7d;</username>
+    <password>&#x24;&#x7b;CLIENT_DB_PASSWORD&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>MSSQLUseIntegratedSecurity</code><attribute>false</attribute></attribute>
+      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;CLIENT_DB_PORT&#x7d;</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>CLIENT_DIRECT</name>
+    <server>localhost</server>
+    <type>MSSQL</type>
+    <access>Native</access>
+    <database>master</database>
+    <port>1433</port>
+    <username>etl_user</username>
+    <password>Encrypted 2be98afc81ac68197940da675e197bbd6</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>Add Constants</from><to>Create claimt_id Sequence</to><enabled>Y</enabled> </hop>
+  <hop> <from>Create addr_id Sequence &#x28;Filing&#x29;</from><to>Write to addr_idfr &#x28;Filing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Create addr_id Sequence &#x28;Resident&#x29;</from><to>Write to addr_idfr &#x28;Resident&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Create claimt_id Sequence</from><to>Write to claimt</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Current Timestamp</from><to>Add Constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to addr &#x28;Filing&#x29;</from><to>Create addr_id Sequence &#x28;Resident&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to addr_idfr &#x28;Filing&#x29;</from><to>Write to addr &#x28;Filing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to addr_idfr &#x28;Resident&#x29;</from><to>Write to addr &#x28;Resident&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get USERREPOSITORY</from><to>Get Current Timestamp</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to claimt_attr &#x28;PassPhrs&#x29;</from><to>Delete</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to claimt_attr &#x28;Email&#x29;</from><to>Check HPhone</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check Email</from><to>Check HPhone</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to claimt_attr &#x28;HPhone&#x29;</from><to>Check Password</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to claimt_attr &#x28;Passwd&#x29;</from><to>Check PIN</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to claimt_attr &#x28;PIN&#x29;</from><to>Check PassPhr</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check HPhone</from><to>Check Password</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check Password</from><to>Check PIN</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check PIN</from><to>Check PassPhr</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check PassPhr</from><to>Delete</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to claimt</from><to>Create addr_id Sequence &#x28;Filing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Write to addr &#x28;Resident&#x29;</from><to>Check Email</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check Email</from><to>Write to claimt_attr &#x28;Email&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check HPhone</from><to>Write to claimt_attr &#x28;HPhone&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check Password</from><to>Write to claimt_attr &#x28;Passwd&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check PIN</from><to>Write to claimt_attr &#x28;PIN&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Check PassPhr</from><to>Write to claimt_attr &#x28;PassPhrs&#x29;</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>Add Constants</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>enty_type_cd</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>CLAIMT</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>addr_type_cd_filing</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>FILG</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>addr_type_cd_resd</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>RESD</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>claimt_attr_type_cd_email</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>EMAIL</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>claimt_attr_type_cd_phone</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>PHONE</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>claimt_attr_type_cd_passwd</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>PASS</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>claimt_attr_sub_type_cd_hemail</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>HOME</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>claimt_attr_sub_type_cd_hphone</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>HOME</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>claimt_attr_sub_type_cd_passwd</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>PASSWD</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>claimt_attr_sub_type_cd_pin</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>PIN</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>claimt_attr_sub_type_cd_phrase</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>PASSPHRASE</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>360</xloc>
+      <yloc>60</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Check Email</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<fieldname>email</fieldname>
+<use_contains>N</use_contains>
+<case_value_type>String</case_value_type>
+<case_value_format/>
+<case_value_decimal/>
+<case_value_group/>
+<default_target_step>Write to claimt_attr &#x28;Email&#x29;</default_target_step>
+<cases><case><value/>
+<target_step>Check HPhone</target_step>
+</case></cases>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>260</xloc>
+      <yloc>260</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Check HPhone</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<fieldname>home_phone</fieldname>
+<use_contains>N</use_contains>
+<case_value_type>String</case_value_type>
+<case_value_format/>
+<case_value_decimal/>
+<case_value_group/>
+<default_target_step>Write to claimt_attr &#x28;HPhone&#x29;</default_target_step>
+<cases><case><value/>
+<target_step>Check Password</target_step>
+</case></cases>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>420</xloc>
+      <yloc>260</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Check PIN</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<fieldname>pin_nbr</fieldname>
+<use_contains>N</use_contains>
+<case_value_type>String</case_value_type>
+<case_value_format/>
+<case_value_decimal/>
+<case_value_group/>
+<default_target_step>Write to claimt_attr &#x28;PIN&#x29;</default_target_step>
+<cases><case><value/>
+<target_step>Check PassPhr</target_step>
+</case></cases>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>740</xloc>
+      <yloc>260</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Check PassPhr</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<fieldname>mothers_maiden_name</fieldname>
+<use_contains>N</use_contains>
+<case_value_type>String</case_value_type>
+<case_value_format/>
+<case_value_decimal/>
+<case_value_group/>
+<default_target_step>Write to claimt_attr &#x28;PassPhrs&#x29;</default_target_step>
+<cases><case><value/>
+<target_step>Delete</target_step>
+</case></cases>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>900</xloc>
+      <yloc>260</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Check Password</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<fieldname>password</fieldname>
+<use_contains>N</use_contains>
+<case_value_type>String</case_value_type>
+<case_value_format/>
+<case_value_decimal/>
+<case_value_group/>
+<default_target_step>Write to claimt_attr &#x28;Passwd&#x29;</default_target_step>
+<cases><case><value/>
+<target_step>Check PIN</target_step>
+</case></cases>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>580</xloc>
+      <yloc>260</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Create addr_id Sequence &#x28;Filing&#x29;</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>filing_addr_id</valuename>
+      <use_database>Y</use_database>
+      <connection>APM</connection>
+      <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+      <seqname>addr_seq</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>660</xloc>
+      <yloc>60</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Create addr_id Sequence &#x28;Resident&#x29;</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>resident_addr_id</valuename>
+      <use_database>Y</use_database>
+      <connection>APM</connection>
+      <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+      <seqname>addr_seq</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>880</xloc>
+      <yloc>60</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Create claimt_id Sequence</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>claimt_id</valuename>
+      <use_database>Y</use_database>
+      <connection>APM</connection>
+      <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+      <seqname>claimt_seq</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>480</xloc>
+      <yloc>60</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Delete</name>
+    <type>Delete</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <commit>1000</commit>
+    <lookup>
+      <schema>&#x24;&#x7b;APM_STG_SCHEMA_NAME&#x7d;</schema>
+      <table>&#x24;&#x7b;TBL_STG_KBA_USER_REPOSITORY&#x7d;</table>
+      <key>
+        <name>id</name>
+        <field>id</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1040</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get Current Timestamp</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>now</name>
+        <type>system date &#x28;variable&#x29;</type>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>240</xloc>
+      <yloc>60</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get USERREPOSITORY</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <sql>SELECT&#xd;&#xa;usr.id,&#xd;&#xa;usr.ssn,&#xd;&#xa;usr.last_name,&#xd;&#xa;usr.first_name,&#xd;&#xa;SUBSTRING&#x28;usr.middle_init FROM 1 FOR 1&#x29; AS middle_init,&#xd;&#xa;usr.email,&#xd;&#xa;usr.home_phone,&#xd;&#xa;usr.password,&#xd;&#xa;usr.pin_nbr,&#xd;&#xa;usr.mothers_maiden_name,&#xd;&#xa;usr.last_login_dt_ts,&#xd;&#xa;usr.login_attempt_nbr_int,&#xd;&#xa;usr.entry_dt_ts,&#xd;&#xa;usr.profile_last_updt_dt_ts,&#xd;&#xa;usr.address_line1,&#xd;&#xa;usr.address_line2,&#xd;&#xa;usr.city,&#xd;&#xa;lkp1.&#x24;&#x7b;FLD_DS_LKP_VAL&#x7d; as resident_city,&#xd;&#xa;lkp2.&#x24;&#x7b;FLD_DS_LKP_VAL&#x7d; as county,&#xd;&#xa;SUBSTRING&#x28;REPLACE&#x28;usr.postal_code, &#x27;-&#x27;, &#x27;&#x27;&#x29; FROM 1 FOR 5&#x29; as postal_code_trim,&#xd;&#xa;CASE WHEN LENGTH&#x28;REPLACE&#x28;usr.postal_code, &#x27;-&#x27;, &#x27;&#x27;&#x29;&#x29; &#x3d; 9&#xd;&#xa; THEN SUBSTRING&#x28;REPLACE&#x28;usr.postal_code, &#x27;-&#x27;, &#x27;&#x27;&#x29; FROM 6 FOR 4&#x29;&#xd;&#xa; ELSE NULL&#xd;&#xa;END AS postal_code,&#xd;&#xa;SUBSTRING&#x28;REPLACE&#x28;usr.resident_postal_code, &#x27;-&#x27;, &#x27;&#x27;&#x29; FROM 1 FOR 5&#x29; as resident_postal_code_trim,&#xd;&#xa;CASE WHEN LENGTH&#x28;REPLACE&#x28;usr.resident_postal_code, &#x27;-&#x27;, &#x27;&#x27;&#x29;&#x29; &#x3d; 9&#xd;&#xa; THEN SUBSTRING&#x28;REPLACE&#x28;usr.resident_postal_code, &#x27;-&#x27;, &#x27;&#x27;&#x29; FROM 6 FOR 4&#x29;&#xd;&#xa; ELSE NULL&#xd;&#xa;END AS resident_postal_code,&#xd;&#xa;lkp3.&#x24;&#x7b;FLD_LKP_CD&#x7d; as state_cd,&#xd;&#xa;lkp4.&#x24;&#x7b;FLD_LKP_CD&#x7d; as resident_state_cd,&#xd;&#xa;-- shift Canada &#x28;state_id &#x3d; 7&#x29; to a country&#xd;&#xa;CASE WHEN usr.state_id &#x3d; &#x27;7&#x27;&#xd;&#xa; THEN &#x27;CA&#x27;&#xd;&#xa; ELSE &#x27;US&#x27;&#xd;&#xa;END AS cntry_cd,&#xd;&#xa;CASE WHEN usr.resident_state_id &#x3d; &#x27;7&#x27;&#xd;&#xa; THEN &#x27;CA&#x27;&#xd;&#xa; ELSE &#x27;US&#x27;&#xd;&#xa;END AS resident_cntry_cd&#xd;&#xa;&#xd;&#xa;FROM &#x24;&#x7b;APM_STG_SCHEMA_NAME&#x7d;.&#x24;&#x7b;TBL_STG_KBA_USER_REPOSITORY&#x7d; usr&#xd;&#xa;LEFT JOIN &#x24;&#x7b;APM_STG_SCHEMA_NAME&#x7d;.&#x24;&#x7b;TBL_STG_LKP&#x7d; lkp1&#xd;&#xa; ON usr.resident_city_id &#x3d; lkp1.&#x24;&#x7b;FLD_DS_LKP_CD&#x7d; AND lkp1.&#x24;&#x7b;FLD_DS_LKP_TBL_ID&#x7d; &#x3d; 1&#xd;&#xa;LEFT JOIN &#x24;&#x7b;APM_STG_SCHEMA_NAME&#x7d;.&#x24;&#x7b;TBL_STG_LKP&#x7d; lkp2&#xd;&#xa; ON usr.county_id &#x3d; lkp2.&#x24;&#x7b;FLD_DS_LKP_CD&#x7d; AND lkp2.&#x24;&#x7b;FLD_DS_LKP_TBL_ID&#x7d; &#x3d; 2&#xd;&#xa;LEFT JOIN &#x24;&#x7b;APM_STG_SCHEMA_NAME&#x7d;.&#x24;&#x7b;TBL_STG_LKP&#x7d; lkp3&#xd;&#xa;  ON usr.state_id &#x3d; lkp3.&#x24;&#x7b;FLD_DS_LKP_CD&#x7d; AND lkp3.&#x24;&#x7b;FLD_DS_LKP_TBL_ID&#x7d; &#x3d; 3&#xd;&#xa;LEFT JOIN &#x24;&#x7b;APM_STG_SCHEMA_NAME&#x7d;.&#x24;&#x7b;TBL_STG_LKP&#x7d; lkp4&#xd;&#xa;  ON usr.resident_state_id&#x3a;&#x3a;text &#x3d; lkp4.&#x24;&#x7b;FLD_DS_LKP_CD&#x7d; AND lkp4.&#x24;&#x7b;FLD_DS_LKP_TBL_ID&#x7d; &#x3d; 3&#xd;&#xa;&#xd;&#xa;WHERE usr.err_flag IS NULL&#x3b;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>100</xloc>
+      <yloc>60</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to addr &#x28;Filing&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>addr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>addr_id</column_name>
+          <stream_name>filing_addr_id</stream_name>
+        </field>
+        <field>
+          <column_name>eff_dt</column_name>
+          <stream_name>now</stream_name>
+        </field>
+        <field>
+          <column_name>addr_line_1</column_name>
+          <stream_name>address_line1</stream_name>
+        </field>
+        <field>
+          <column_name>addr_line_2</column_name>
+          <stream_name>address_line2</stream_name>
+        </field>
+        <field>
+          <column_name>city_name</column_name>
+          <stream_name>city</stream_name>
+        </field>
+        <field>
+          <column_name>st_cd</column_name>
+          <stream_name>state_cd</stream_name>
+        </field>
+        <field>
+          <column_name>zip_cd</column_name>
+          <stream_name>postal_code_trim</stream_name>
+        </field>
+        <field>
+          <column_name>zip_cd_plus_4</column_name>
+          <stream_name>postal_code</stream_name>
+        </field>
+        <field>
+          <column_name>cnty_name</column_name>
+          <stream_name>county</stream_name>
+        </field>
+        <field>
+          <column_name>cntry_cd</column_name>
+          <stream_name>cntry_cd</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>780</xloc>
+      <yloc>140</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to addr &#x28;Resident&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>addr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>addr_id</column_name>
+          <stream_name>resident_addr_id</stream_name>
+        </field>
+        <field>
+          <column_name>eff_dt</column_name>
+          <stream_name>now</stream_name>
+        </field>
+        <field>
+          <column_name>st_cd</column_name>
+          <stream_name>resident_state_cd</stream_name>
+        </field>
+        <field>
+          <column_name>cntry_cd</column_name>
+          <stream_name>resident_cntry_cd</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1080</xloc>
+      <yloc>140</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to addr_idfr &#x28;Filing&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>addr_idfr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>addr_id</column_name>
+          <stream_name>filing_addr_id</stream_name>
+        </field>
+        <field>
+          <column_name>enty_type_cd</column_name>
+          <stream_name>enty_type_cd</stream_name>
+        </field>
+        <field>
+          <column_name>addr_type_cd</column_name>
+          <stream_name>addr_type_cd_filing</stream_name>
+        </field>
+        <field>
+          <column_name>enty_id</column_name>
+          <stream_name>claimt_id</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>640</xloc>
+      <yloc>140</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to addr_idfr &#x28;Resident&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>addr_idfr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>addr_id</column_name>
+          <stream_name>resident_addr_id</stream_name>
+        </field>
+        <field>
+          <column_name>enty_type_cd</column_name>
+          <stream_name>enty_type_cd</stream_name>
+        </field>
+        <field>
+          <column_name>addr_type_cd</column_name>
+          <stream_name>addr_type_cd_resd</stream_name>
+        </field>
+        <field>
+          <column_name>enty_id</column_name>
+          <stream_name>claimt_id</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>920</xloc>
+      <yloc>140</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to claimt</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>claimt</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>claimt_id</column_name>
+          <stream_name>claimt_id</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_ref_num</column_name>
+          <stream_name>ssn</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_last_name</column_name>
+          <stream_name>last_name</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_first_name</column_name>
+          <stream_name>first_name</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_mi</column_name>
+          <stream_name>middle_init</stream_name>
+        </field>
+        <field>
+          <column_name>last_login_tmstmp</column_name>
+          <stream_name>last_login_dt_ts</stream_name>
+        </field>
+        <field>
+          <column_name>faild_login_cnt</column_name>
+          <stream_name>login_attempt_nbr_int</stream_name>
+        </field>
+        <field>
+          <column_name>profl_crt_tmstmp</column_name>
+          <stream_name>entry_dt_ts</stream_name>
+        </field>
+        <field>
+          <column_name>profl_last_updt_tmstmp</column_name>
+          <stream_name>profile_last_updt_dt_ts</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>480</xloc>
+      <yloc>140</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to claimt_attr &#x28;Email&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>claimt_attr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>claimt_id</column_name>
+          <stream_name>claimt_id</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_type_cd</column_name>
+          <stream_name>claimt_attr_type_cd_email</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_sub_type_cd</column_name>
+          <stream_name>claimt_attr_sub_type_cd_hemail</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_val</column_name>
+          <stream_name>email</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>260</xloc>
+      <yloc>380</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to claimt_attr &#x28;HPhone&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>claimt_attr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>claimt_id</column_name>
+          <stream_name>claimt_id</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_type_cd</column_name>
+          <stream_name>claimt_attr_type_cd_phone</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_sub_type_cd</column_name>
+          <stream_name>claimt_attr_sub_type_cd_hphone</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_val</column_name>
+          <stream_name>home_phone</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>420</xloc>
+      <yloc>380</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to claimt_attr &#x28;PIN&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>claimt_attr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>claimt_id</column_name>
+          <stream_name>claimt_id</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_type_cd</column_name>
+          <stream_name>claimt_attr_type_cd_passwd</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_sub_type_cd</column_name>
+          <stream_name>claimt_attr_sub_type_cd_pin</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_val</column_name>
+          <stream_name>pin_nbr</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>740</xloc>
+      <yloc>380</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to claimt_attr &#x28;PassPhrs&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>claimt_attr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>claimt_id</column_name>
+          <stream_name>claimt_id</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_type_cd</column_name>
+          <stream_name>claimt_attr_type_cd_passwd</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_sub_type_cd</column_name>
+          <stream_name>claimt_attr_sub_type_cd_phrase</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_val</column_name>
+          <stream_name>mothers_maiden_name</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>900</xloc>
+      <yloc>380</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to claimt_attr &#x28;Passwd&#x29;</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>APM</connection>
+    <schema>&#x24;&#x7b;APM_NRD_SCHEMA_NAME&#x7d;</schema>
+    <table>claimt_attr</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>claimt_id</column_name>
+          <stream_name>claimt_id</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_type_cd</column_name>
+          <stream_name>claimt_attr_type_cd_passwd</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_sub_type_cd</column_name>
+          <stream_name>claimt_attr_sub_type_cd_passwd</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_val</column_name>
+          <stream_name>password</stream_name>
+        </field>
+        <field>
+          <column_name>claimt_attr_crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+        <field>
+          <column_name>crt_tmstmp</column_name>
+          <stream_name>now</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>580</xloc>
+      <yloc>380</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>
