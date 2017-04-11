@@ -52,7 +52,9 @@ The following parameters are pulled from a parameter table to run this model:
 - ${APM_CYCL_DT}: Kettle date insert (or passed as function arg)
 }
 \examples{
+\dontrun{
 rc <- new_hire_score()
+}
 
 }
 

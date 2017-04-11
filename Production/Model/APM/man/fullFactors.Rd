@@ -7,11 +7,11 @@
 fullFactors(factorVar, choices, NAlevel = TRUE)
 }
 \arguments{
-\item{varTF012}{The input}
+\item{factorVar}{Vector of values to turn into factors}
 
-\item{input_type}{Input type (ignored for now)}
+\item{choices}{Vector of factor levels to be assigned}
 
-\item{output_type}{Output type ("numeric", "factor1", "boolean")}
+\item{NAlevel}{Should the routine assign an "NA" level to missing values?}
 }
 \value{
 converted thingie

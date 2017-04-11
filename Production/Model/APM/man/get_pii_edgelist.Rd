@@ -6,6 +6,9 @@
 \usage{
 get_pii_edgelist(db_conn)
 }
+\arguments{
+\item{db_conn}{Database connection}
+}
 \value{
 side effects
 }

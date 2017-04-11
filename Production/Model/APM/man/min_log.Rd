@@ -9,17 +9,17 @@ min_log(var, minval)
 \arguments{
 \item{var}{Input to be logged}
 
-\item{min}{Minimum allowed value}
+\item{minval}{Minimum allowed value}
 }
 \value{
 The capped variable
 }
 \description{
-This function does two things. 
+This function does two things.
   1. Ensures that the minimum value for a variable is not above a predefined
      minimum. This is critical for model robustness, since new unexpected
-     negative values would otherwise break the log function (we've seen 
-     these in NY). 
+     negative values would otherwise break the log function (we've seen
+     these in NY).
   2. Brings all values above zero to allow them to be logged.
 }
 \author{

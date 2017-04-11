@@ -67,6 +67,16 @@ CREATE TABLE aggr_claimt_benf (
    CONSTRAINT pk_aggr_claimt_benf PRIMARY KEY (claimt_id, cert_perd_end_dt)
 );
 
+ALTER TABLE aggr_claimt_benf
+  OWNER TO sidapmprd;
+GRANT ALL ON TABLE aggr_claimt_benf TO sidapmprd;
+GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE aggr_claimt_benf TO sidapmprdapp;
+GRANT SELECT ON TABLE aggr_claimt_benf TO sidapmprdusr;
+
+/*======================*/
+/* RE-ADD PERMISSIONS   */
+/*======================*/
+
 /*==============================================================*/
 /* NOTE: NEED TO RE-RUN AGGREGATION TO RE-POPULATE THIS TABLE   */
 /*==============================================================*/

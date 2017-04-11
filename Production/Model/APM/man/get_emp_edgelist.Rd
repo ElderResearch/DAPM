@@ -6,6 +6,11 @@
 \usage{
 get_emp_edgelist(db_conn, sql_quarter)
 }
+\arguments{
+\item{db_conn}{Database connection}
+
+\item{sql_quarter}{Quarter to anchor on for the edgelist}
+}
 \value{
 side effects
 }

@@ -5,7 +5,7 @@
 \title{IP Location Score}
 \usage{
 ip_location_score(cycle_date = NULL, db_schema = "nrd",
-  drop_tmp_tables = TRUE)
+  drop_tmp_tables = TRUE, exclude_cellular = FALSE)
 }
 \arguments{
 \item{cycle_date}{The APM cycle date.}
@@ -14,6 +14,9 @@ ip_location_score(cycle_date = NULL, db_schema = "nrd",
 Default: "nrd".}
 
 \item{drop_tmp_tables}{Remove created TMP tables.}
+
+\item{exclude_cellular}{Whether or not the module should exclude
+records identified as originating from cellular IPs.}
 }
 \value{
 An integer status code, like other models.
@@ -44,7 +47,9 @@ The following parameters are pulled from a parameter table to run this model:
 - ${APM_CYCL_DT}: Kettle date insert (also set via function arg)
 }
 \examples{
-rc <- changing_ip_score()
+\dontrun{
+rc <- ip_location_score()
+}
 
 }
 

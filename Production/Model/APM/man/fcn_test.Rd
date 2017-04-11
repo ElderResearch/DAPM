@@ -6,6 +6,9 @@
 \usage{
 fcn_test(a)
 }
+\arguments{
+\item{a}{An arbitrary numeric input}
+}
 \value{
 A numeric value
 }

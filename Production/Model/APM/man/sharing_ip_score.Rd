@@ -5,13 +5,19 @@
 \title{Sharing IP Scoring}
 \usage{
 sharing_ip_score(cycle_date = NULL, db_schema = "nrd",
-  drop_tmp_tables = TRUE)
+  drop_tmp_tables = TRUE, exclude_cellular = FALSE)
 }
 \arguments{
 \item{cycle_date}{The APM cycle date.}
 
-\item{db_schema}{The database schema to write scores and related tables to.
-Default: "nrd".}
+\item{db_schema}{The database schema to write scores and related tables
+to. Default: "nrd".}
+
+\item{drop_tmp_tables}{Should the routine remove temporary tables created
+along the way to risk scores? Default: TRUE.}
+
+\item{exclude_cellular}{Whether or not the module should exclude
+records identified as originating from cellular IPs.}
 }
 \value{
 Integer status code, like other models.
@@ -36,7 +42,9 @@ ip is shared and it's coming from outside the states listed in the
 claimant's file, it's more risky.
 }
 \examples{
+\dontrun{
 rc <- sharing_ip_score()
+}
 
 }
 

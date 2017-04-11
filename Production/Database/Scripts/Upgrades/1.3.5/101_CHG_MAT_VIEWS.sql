@@ -1,7 +1,7 @@
 CREATE INDEX bid_claimt_list_idx1 ON bid.bid_claimt_list (claimt_id);
 CREATE INDEX bid_claimt_list_idx2 ON bid.bid_claimt_list (normlzd_score_val DESC);
 
-CREATE MATERIALIZED VIEW bid.scored_aggr_claimt_emplr_hist
+CREATE MATERIALIZED VIEW bid.scored_aggr_claimt_emplr_hist AS
  SELECT aceh.claimt_id,
     aceh.emplr_id,
     aceh.empl_start_qtr_num,
@@ -17,7 +17,7 @@ WITH DATA;
 
 CREATE INDEX scored_aceh_idx ON bid.scored_aggr_claimt_emplr_hist (claimt_id);
 
-CREATE MATERIALIZED VIEW bid.scored_claimt_attr
+CREATE MATERIALIZED VIEW bid.scored_claimt_attr AS
  SELECT ca.claimt_id,
     ca.claimt_attr_type_cd,
     ca.claimt_attr_val,
@@ -29,7 +29,7 @@ WITH DATA;
 
 CREATE INDEX scored_ca_idx ON bid.scored_claimt_attr (claimt_id);
 
-CREATE MATERIALIZED VIEW bid.scored_claimt_sessn
+CREATE MATERIALIZED VIEW bid.scored_claimt_sessn AS
  SELECT cs.claimt_id,
     cs.claimt_sessn_tmstmp,
     cs.orig_ip_addr,
@@ -44,7 +44,7 @@ WITH DATA;
 CREATE INDEX scored_cs_idx1 ON bid.scored_claimt_sessn (claimt_id);
 CREATE INDEX scored_cs_idx2 ON bid.scored_claimt_sessn USING GIST (orig_ip_addr inet_ops);
 
-CREATE MATERIALIZED VIEW bid.scored_claimt_wage
+CREATE MATERIALIZED VIEW bid.scored_claimt_wage AS
  SELECT c.claimt_id,
     wr.emplr_id,
     wr.wage_dt,

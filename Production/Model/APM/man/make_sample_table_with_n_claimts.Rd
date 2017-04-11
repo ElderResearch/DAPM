@@ -14,6 +14,8 @@ make_sample_table_with_n_claimts(conn, start_qtr, end_qtr, n_claimts, tbl_name,
 
 \item{end_qtr}{End quarter number (inclusive).}
 
+\item{n_claimts}{Number of claimants to sample.}
+
 \item{tbl_name}{Name (with schema) of the table to create.}
 
 \item{exclude_claimts}{Character vector of tables whose claimants should not
@@ -21,8 +23,6 @@ be included.}
 
 \item{target_cols}{Character vector of columns to join from the
 overpayment table.}
-
-\item{n_records}{Number of records to sample.}
 }
 \value{
 Integer with the number of rows in the specified table.

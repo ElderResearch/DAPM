@@ -37,7 +37,9 @@ USES:     benefits, quarterly_wage
 CREATES:  qwr_score
 }
 \examples{
+\dontrun{
 rc <- qwr_score()
+}
 
 }
 \author{

@@ -20,12 +20,6 @@ converted thingie
 \description{
 \code{convMulti} turn a column into a set of dummy variables. The `model.matrix` function
 }
-\examples{
-x <- convMulti (foo, "c", 20:25)    # Make new dummy columns
-foo[, c := NULL]                    # Delete original column
-foo[, names (x) := x, with=FALSE]   # Insert new dummy columns
-
-}
 \author{
 Wayne Folta
 }

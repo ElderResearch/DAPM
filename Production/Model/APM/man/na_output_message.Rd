@@ -6,6 +6,9 @@
 \usage{
 na_output_message(df)
 }
+\arguments{
+\item{df}{A data frame}
+}
 \value{
 0
 }

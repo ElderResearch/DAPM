@@ -14,7 +14,7 @@ Saves a list object to APM/Data that will be used to train and score
 models
 }
 \description{
-Creates a list of lists. The outer list will be created for each state and 
+Creates a list of lists. The outer list will be created for each state and
 will include a list for each model. The list for each model has two entries:
   1. Vector of input variables to use for that model
   2. List of model parameters

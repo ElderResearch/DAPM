@@ -4,13 +4,17 @@
 \alias{sharing_ips_with_employer_score}
 \title{Sharing IPs with employers}
 \usage{
-sharing_ips_with_employer_score(cycle_date = NULL, db_schema = "nrd")
+sharing_ips_with_employer_score(cycle_date = NULL, db_schema = "nrd",
+  exclude_cellular = FALSE)
 }
 \arguments{
 \item{cycle_date}{The APM cycle date.}
 
 \item{db_schema}{The database schema to write scores and related tables to.
 Default: "nrd".}
+
+\item{exclude_cellular}{Whether or not the module should exclude
+records identified as originating from cellular IPs.}
 }
 \value{
 An integer status code, like other models.
@@ -33,7 +37,9 @@ The following parameters are pulled from a parameter table to run this model:
 - ${APM_CYCL_DT}: Kettle date insert (or passed as function arg)
 }
 \examples{
-rc <- claimt_sharing_ips_with_employer_score()
+\dontrun{
+rc <- sharing_ips_with_employer_score()
+}
 
 }
 
