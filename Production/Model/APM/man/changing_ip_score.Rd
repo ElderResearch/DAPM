@@ -5,7 +5,7 @@
 \title{Changing IP Module}
 \usage{
 changing_ip_score(cycle_date = NULL, db_schema = "nrd",
-  exclude_cellular = FALSE)
+  exclude_cellular = NULL)
 }
 \arguments{
 \item{cycle_date}{The APM cycle date.}

@@ -1114,3 +1114,97 @@ transform_inputs_dt <- function(dt, transform.list) {
   return(err)
 
 }
+
+
+#' Fetch a model parameter from the NRDB
+#'
+#' @param con Database connection.
+#' @param param Parameter name in \code{ref.score}.
+#'
+#' @return Parameter or \code{NULL}.
+#' @export
+fetch_param_from_nrdb <- function(con, param) {
+  db_param <- RJDBC::dbGetQuery(con,
+                sprintf("select parm_val from ref.parm
+                         where parm_cd = '%s' limit 1", param))
+
+  if (nrow(db_param) > 0) {
+    return(db_param[[1, 1]])
+  }
+
+  # If no entry in the database, return NULL
+  NULL
+}
+
+
+#' Assign a parameter or optionally fill from NRDB
+#'
+#' @param param Parameter name in the NRDB.
+#' @param con NRDB connection object.
+#' @param input User-assigned input. Non-\code{NULL} inputs short circuit
+#'   NRDB assignment.
+#' @return A parameter.
+#' @export
+set_param <- function(param, con, input = NULL) {
+  if (!is.null(input)) {
+    output_message(sprintf("PARAMETER: %s = %s", param, input))
+    return(input)
+  }
+
+  # Assign a value to return_value from the NRDB.
+  # If a value cannot be found, return an error.
+  return_value <- NULL
+
+  tryCatch({
+    return_value <- fetch_param_from_nrdb(con = con, param = param)
+    if (is.null(return_value)) {
+      stop(sprintf(
+        "The parameter '%s' could not be read from ref.parm", param))
+    }
+  }, error = apm_error_handler) -> s
+
+  if ("error" %in% class(s)) {
+    return(s)
+  }
+
+  output_message(sprintf(
+    "PARAMETER: %s = %s from ref.parm", param, return_value))
+
+  return(return_value)
+}
+
+#' Assign a parameter or optionally fill from NRDB
+#'
+#' @param ... Arguments to pass to \code{set_param}.
+#' @return A numeric.
+#' @export
+#' @examples
+#' \dontrun{
+#' i <- set_param_num(param = "K", con = db_conn$conn, input = k)
+#' }
+set_param_num <- function(...) {
+  return_value <- set_param(...)
+
+  if ("error" %in% class(return_value))
+    return(return_value)
+
+  return(as.numeric(return_value))
+}
+
+#' Assign a parameter or optionally fill from NRDB
+#'
+#' @param ... Arguments to pass to \code{set_param}.
+#' @return A boolean.
+#' @export
+#' @examples
+#' \dontrun{
+#' j <- set_param_lgl(param = "EXCLUDE_CELLULAR", con = db_conn$conn)
+#' }
+set_param_lgl <- function(...) {
+  return_value <- set_param(...)
+
+  if ("error" %in% class(return_value))
+    return(return_value)
+
+  return(as.logical(return_value))
+}

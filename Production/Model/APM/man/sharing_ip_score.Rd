@@ -5,7 +5,7 @@
 \title{Sharing IP Scoring}
 \usage{
 sharing_ip_score(cycle_date = NULL, db_schema = "nrd",
-  drop_tmp_tables = TRUE, exclude_cellular = FALSE)
+  drop_tmp_tables = TRUE, exclude_cellular = NULL)
 }
 \arguments{
 \item{cycle_date}{The APM cycle date.}

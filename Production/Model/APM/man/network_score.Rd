@@ -5,8 +5,8 @@
 \title{PII and Employment Network Scoring}
 \usage{
 network_score(cycle_date = NULL, prevDays = 90,
-  scoreTableName = "nrd.enty_score", emplrQuarters = 2, piiYears = 5,
-  ipWeeks = 13)
+  scoreTableName = "nrd.enty_score", emplrQuarters = NULL,
+  piiYears = NULL, ipMonths = NULL)
 }
 \arguments{
 \item{cycle_date}{Weekend date to calculate scores up to}
@@ -19,7 +19,8 @@ network_score(cycle_date = NULL, prevDays = 90,
 
 \item{piiYears}{Number of years to seek back for PII connections}
 
-\item{ipWeeks}{Number of weeks to seek back for IP connections}
+\item{ipMonths}{Number of months to seek back for IP connections (actually
+seek back 4 * [number of months] weeks)}
 }
 \value{
 Integer code to Kettle or data frame if `scoreTableName = NULL`
@@ -27,8 +28,7 @@ Integer code to Kettle or data frame if `scoreTableName = NULL`
 \description{
 This module connects claimants to others identified as having commited fraud
 via three factors:
-}
-\details{
+
 1. Employment history
 2. PII
 3. IP address sharing

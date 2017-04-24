@@ -5,30 +5,31 @@
 \title{Score Certifications with a DAPM k-Nearest-Neighbors Model}
 \usage{
 k_nearest_neighbors_score(cycle_date = NULL, prevDays = 90,
-  inputDF = NULL, scoreTableName = "nrd.enty_score", k = 17)
+  inputDF = NULL, scoreTableName = "nrd.enty_score", k = NULL)
 }
 \arguments{
 \item{cycle_date}{The current cycle date for scoring.}
 
 \item{prevDays}{Number of days to look backwards for a certification filed by
-a claimant. Claimants who do not have a certification within this
-range will not be scored, but claimants who do have a certification
-within this range will have the most recent filing scored.}
+a claimant. Claimants who do not have a certification within this range
+will not be scored, but claimants who do have a certification within this
+range will have the most recent filing scored.}
 
 \item{inputDF}{A data frame of certifications to score. If
-\code{inputDF=NULL} (the default), this function scores certifications
-from the database. This function  assumed the data was taken from an
-SQL query like that in the source.}
+\code{inputDF=NULL} (the default), this function scores certifications from
+the database. This function  assumed the data was taken from an SQL query
+like that in the source.}
 
 \item{scoreTableName}{The fully-qualified table into which to place the
 scores. If \code{scoreTableName=NULL}, return a data frame instead of
 writing to the database.}
 
-\item{k}{The number of neighbors to take into consideration.}
+\item{k}{The number of neighbors to take into consideration. If \code{NULL},
+the value is taken from \code{ref.score.K}.}
 }
 \value{
 Returns 0 on success and an integer > 0 if an error occured. These
-        integer codes should be unique.
+  integer codes should be unique.
 }
 \description{
 This is a simpler, more opinionated scoring function than has been included
@@ -48,7 +49,7 @@ Assumptions:
 
 Given these assumptions, this function will:
 
-1. Take in raw data 
+1. Take in raw data
 2. Impute missing values
 3. Subset down to ID vars and predictors
 4. Transform the predictors

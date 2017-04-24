@@ -30,7 +30,7 @@
 #' @export
 changing_ip_score <- function(cycle_date       = NULL,
                               db_schema        = "nrd",
-                              exclude_cellular = FALSE) {
+                              exclude_cellular = NULL) {
 
   # Basic APM init stuff
   if (initialize_apm("Changing IP Scoring") != 0)
@@ -45,6 +45,16 @@ changing_ip_score <- function(cycle_date       = NULL,
 
   if ("error" %in% class(db))
     return(2)
+
+
+  # Parameter setting
+  exclude_cellular <- set_param_lgl(param = "EXCLUDE_CELLULAR",
+                                    con   = db$conn,
+                                    input = exclude_cellular)
+
+  if ("error" %in% class(exclude_cellular)) {
+    return(21)
+  }
 
 
   # Optionally exclude CEL IP sessions by injecting SQL code
@@ -280,7 +290,7 @@ changing_ip_score <- function(cycle_date       = NULL,
 ip_location_score <- function(cycle_date       = NULL,
                               db_schema        = "nrd",
                               drop_tmp_tables  = TRUE,
-                              exclude_cellular = FALSE) {
+                              exclude_cellular = NULL) {
   # Basic APM init stuff
   if (initialize_apm("IP Location Scoring") != 0)
     return(1)
@@ -294,6 +304,16 @@ ip_location_score <- function(cycle_date       = NULL,
 
   if ("error" %in% class(db))
     return(2)
+
+
+  # Parameter setting
+  exclude_cellular <- set_param_lgl(param = "EXCLUDE_CELLULAR",
+                                    con   = db$conn,
+                                    input = exclude_cellular)
+
+  if ("error" %in% class(exclude_cellular)) {
+    return(21)
+  }
 
 
   # The correct business period is the one that ended just before the cycle date
@@ -509,7 +529,7 @@ ip_location_score <- function(cycle_date       = NULL,
 #' @export
 sharing_ips_with_employer_score <- function(cycle_date       = NULL,
                                             db_schema        = "nrd",
-                                            exclude_cellular = FALSE) {
+                                            exclude_cellular = NULL) {
 
   # Basic APM init stuff
   if (initialize_apm("Claimant + Employer IP Sharing Scoring") != 0)
@@ -524,6 +544,16 @@ sharing_ips_with_employer_score <- function(cycle_date       = NULL,
 
   if ("error" %in% class(db))
     return(2)
+
+
+  # Parameter setting
+  exclude_cellular <- set_param_lgl(param = "EXCLUDE_CELLULAR",
+                                    con   = db$conn,
+                                    input = exclude_cellular)
+
+  if ("error" %in% class(exclude_cellular)) {
+    return(21)
+  }
 
 
   # Cut out CEL IP accesses if requested
@@ -1088,7 +1118,7 @@ qwr_score <- function(cycle_date=NULL, db_schema="nrd") {
 sharing_ip_score <- function(cycle_date       = NULL,
                              db_schema        = "nrd",
                              drop_tmp_tables  = TRUE,
-                             exclude_cellular = FALSE) {
+                             exclude_cellular = NULL) {
 
   if (initialize_apm("Sharing IP Scoring") != 0)
     return(1)
@@ -1102,6 +1132,16 @@ sharing_ip_score <- function(cycle_date       = NULL,
 
   if ("error" %in% class(db))
     return(2)
+
+
+  # Parameter setting
+  exclude_cellular <- set_param_lgl(param = "EXCLUDE_CELLULAR",
+                                    con   = db$conn,
+                                    input = exclude_cellular)
+
+  if ("error" %in% class(exclude_cellular)) {
+    return(21)
+  }
 
 
   output_message("Create TMP tables")

@@ -1,5 +1,6 @@
 #' Distance Risk Module
 #'
+#' @description
 #' This module is intended to replace the Location Risk Module used in Kansas
 #' and Idaho. New York did not find the Location Risk Module helpful because
 #' many of their claimants file legally from nearby states as well as Canada,
@@ -24,24 +25,24 @@
 #'
 #' @param cycle_date The cycle date being scored
 #' @param scoreTableName The fully-qualified table into which to place the
-#'        scores. If \code{scoreTableName=NULL}, return a data frame instead of
-#'        writing to the database.
+#'   scores. If \code{scoreTableName=NULL}, return a data frame instead of
+#'   writing to the database.
 #' @param inputDF A data frame of certifications to score. If
-#'        \code{inputDF=NULL} (the default), this function scores certifications
-#'        from the database. This function  assumed the data was taken from an
-#'        SQL query like that in the source.
-#' @param exclude_cellular Whether or not the module should exclude
-#'        records identified as originating from cellular IPs.
+#'   \code{inputDF=NULL} (the default), this function scores certifications from
+#'   the database. This function  assumed the data was taken from an SQL query
+#'   like that in the source.
+#' @param exclude_cellular Whether or not the module should exclude records
+#'   identified as originating from cellular IPs.
 #'
 #' @return Returns 0 on success, >0 on failure, look at the \code{return}
-#' statements to identify where the failure occurred.
+#'   statements to identify where the failure occurred.
 #'
 #' @author Daniel Brannock
 #' @export
 distance_score <- function(cycle_date       = NULL,
                            scoreTableName   = "nrd.enty_score",
                            inputDF          = NULL,
-                           exclude_cellular = FALSE) {
+                           exclude_cellular = NULL) {
 
   # Basic APM init stuff
   if (initialize_apm("Distance IP Scoring") != 0)
@@ -56,6 +57,17 @@ distance_score <- function(cycle_date       = NULL,
 
   if ("error" %in% class(db_conn))
     return(2)
+
+
+  # Parameter setting
+  exclude_cellular <- set_param_lgl(param = "EXCLUDE_CELLULAR",
+                                    con   = db_conn$conn,
+                                    input = exclude_cellular)
+
+  if ("error" %in% class(exclude_cellular)) {
+    return(21)
+  }
+
 
   if (is.null(inputDF)) {
     output_message("Load Data from NRDB")

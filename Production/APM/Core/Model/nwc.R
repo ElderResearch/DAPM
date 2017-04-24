@@ -1,6 +1,5 @@
-library (APM)
-memory.limit (40000)
+library(APM)
+memory.limit(40000)
 
 rc <- network_score()
-
-OUTPUT <- list (RETN_CD=rc)
+OUTPUT <- list(RETN_CD = rc)

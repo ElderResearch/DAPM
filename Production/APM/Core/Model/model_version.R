@@ -1,2 +1,2 @@
 library(APM)
-OUTPUT <- list(MODEL_VERSION=get_model_version())
+OUTPUT <- list(MODEL_VERSION = get_model_version())

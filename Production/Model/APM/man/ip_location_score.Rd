@@ -5,7 +5,7 @@
 \title{IP Location Score}
 \usage{
 ip_location_score(cycle_date = NULL, db_schema = "nrd",
-  drop_tmp_tables = TRUE, exclude_cellular = FALSE)
+  drop_tmp_tables = TRUE, exclude_cellular = NULL)
 }
 \arguments{
 \item{cycle_date}{The APM cycle date.}
