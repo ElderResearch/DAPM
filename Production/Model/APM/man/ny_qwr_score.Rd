@@ -4,10 +4,14 @@
 \alias{ny_qwr_score}
 \title{NYSDOL QWR Cross-check}
 \usage{
-ny_qwr_score(cycle_date = NULL, score_table_name = "nrd.enty_score")
+ny_qwr_score(cycle_date = NULL, prev_days = 90,
+  score_table_name = "nrd.enty_score")
 }
 \arguments{
 \item{cycle_date}{APM cycle date as a character vector.}
+
+\item{prev_days}{Claimants who hav certified within `prev_days` days will
+be assigned a score.}
 
 \item{score_table_name}{NRDB score table name or \code{NULL}.
 If \code{NULL}, return a data frame instead of writing to the NRDB.}

@@ -2,10 +2,10 @@
 #'
 #' @description
 #' This module is intended to replace the Location Risk Module used in Kansas
-#' and Idaho. New York did not find the Location Risk Module helpful because
-#' many of their claimants file legally from nearby states as well as Canada,
-#' while some places within the state may be high risk if it is far from their
-#' home address.
+#' and Idaho. New York did not find the Location Risk Module so helpful because,
+#' on one hand, many claimants file legally from nearby states and Canada
+#' while, on the other hand, some places within the state may be high risk if
+#' they are far from a claimant's home address.
 #'
 #' The location of the home address is pulled from the zip code given in
 #' \code{nrd.addr}, which is then matched with a database containing zip codes
@@ -33,16 +33,16 @@
 #'   like that in the source.
 #' @param exclude_cellular Whether or not the module should exclude records
 #'   identified as originating from cellular IPs.
+#' @param addr_type_cd NRDB type code for the address to use in the query (e.g.,
+#'   `RESD`, `PHYS`, etc.)
 #'
 #' @return Returns 0 on success, >0 on failure, look at the \code{return}
 #'   statements to identify where the failure occurred.
-#'
 #' @author Daniel Brannock
 #' @export
-distance_score <- function(cycle_date       = NULL,
-                           scoreTableName   = "nrd.enty_score",
-                           inputDF          = NULL,
-                           exclude_cellular = NULL) {
+distance_score <- function(cycle_date = NULL, scoreTableName = "nrd.enty_score",
+                           inputDF = NULL, exclude_cellular = NULL,
+                           addr_type_cd = NULL) {
 
   # Basic APM init stuff
   if (initialize_apm("Distance IP Scoring") != 0)
@@ -61,55 +61,78 @@ distance_score <- function(cycle_date       = NULL,
 
   # Parameter setting
   exclude_cellular <- set_param_lgl(param = "EXCLUDE_CELLULAR",
-                                    con   = db_conn$conn,
+                                    con = db_conn$conn,
                                     input = exclude_cellular)
 
   if ("error" %in% class(exclude_cellular)) {
     return(21)
   }
+  
+  addr_type_cd <- set_param_chr(param = "TRAVEL_ADDR_TYPE_CD",
+                                con = db_conn$conn, input = addr_type_cd)
+  
+  if ("error" %in% class(addr_type_cd)) {
+    return(22)
+  }
 
 
   if (is.null(inputDF)) {
     output_message("Load Data from NRDB")
-
-    ## 1. Pull most recent claim start date for each claimant who filed in the last 90 days
-    ## 2. Add IP data for all sessions in the current claim
-    ## 3. Join home address zipcode (using home address effective dates)
-    sql1 <- sprintf("select claimt_id, max(claim_start_dt) as claim_start_dt
-                     from nrd.aggr_claimt_benf
-                     where cert_perd_end_dt >= ('%1$s'::date - 90) and
-                           cert_perd_end_dt <= ('%1$s'::date)
-                     group by claimt_id", cycle_date)
-
-    sql2 <- sprintf("select claimt_id, claimt_sessn_tmstmp, sessn_enty_type_cd, ip_lat_val, ip_long_val
-             from nrd.aggr_claimt_sessn
-             where claimt_sessn_tmstmp >= ('%s'::date - 730)", cycle_date)
-
-    # Optionally: cut on ip_conn_type_cd
-    # The null check is required b/c the code is often null and "!=" seems
-    # to enforce a requirement that the field not be null
-    if (exclude_cellular) {
-      output_message("Excluding CEL sessions")
-      sql2 <- paste(sql2, "and (ip_conn_type_cd != 'CEL'
-                           or ip_conn_type_cd is null)")
-    }
-
-    sql3 <- sprintf("select addr_id, eff_dt, exp_dt, zip_cd
-             from nrd.addr
-             where exp_dt is null or exp_dt >= ('%s'::date - 730)", cycle_date)
-
-    sql <- sprintf("select c.*, d.eff_dt, d.exp_dt, d.zip_cd
-                    from (select a.claimt_id, a.claim_start_dt,
-                                 b.claimt_sessn_tmstmp, b.sessn_enty_type_cd, b.ip_lat_val, b.ip_long_val
-                          from (%s) a
-                          left join (%s) b
-                          on a.claimt_id = b.claimt_id and b.claimt_sessn_tmstmp >= (a.claim_start_dt - 7)) c
-                   left join (%s) d
-                   on c.claimt_id = d.addr_id and c.claimt_sessn_tmstmp >= d.eff_dt and
-                                                 (c.claimt_sessn_tmstmp <= d.exp_dt or d.exp_dt is null)",
-                   sql1, sql2, sql3)
-
-    ov <- data.table::data.table(RJDBC::dbGetQuery(db_conn$conn, sql))
+    
+    sql <- sprintf(
+      "-- Claimants certifying in the last 90 days
+      with t_claimt as (
+        select claimt_id, max(claim_start_dt) as claim_start_dt
+        from nrd.aggr_claimt_benf
+        where cert_perd_end_dt >= ('%1$s'::date - 90)
+        and cert_perd_end_dt <= ('%1$s'::date)
+        group by claimt_id
+      ),
+      -- All session info for 2 years, excluding CEL if requested
+      t_sessn as (
+        select
+          claimt_id, claimt_sessn_tmstmp, sessn_enty_type_cd,
+          ip_lat_val, ip_long_val
+        from nrd.aggr_claimt_sessn
+        where claimt_sessn_tmstmp >= ('%1$s'::date - 730)
+        -- Optional CEL exclusion
+        %2$s
+      ),
+      -- All address data for two years
+      t_addr as (
+        select enty_id as claimt_id, eff_dt, exp_dt, zip_cd
+        from nrd.addr_idfr
+        join nrd.addr
+          on addr_idfr.addr_id = addr.addr_id
+        where enty_type_cd = 'CLAIMT'
+        -- Claimant address type: PHYS, RESD, MAIL, ...
+        and addr_type_cd = '%3$s'
+        and (exp_dt is null or exp_dt >= ('%1$s'::date - 730))
+      )
+      select
+        t_claimt.claimt_id, claim_start_dt,
+        claimt_sessn_tmstmp, sessn_enty_type_cd, ip_lat_val, ip_long_val,
+        eff_dt, exp_dt, zip_cd
+      from t_claimt
+      left join t_sessn
+        on t_claimt.claimt_id = t_sessn.claimt_id
+        and claimt_sessn_tmstmp >= (claim_start_dt - 7)
+      left join t_addr
+        on t_claimt.claimt_id = t_addr.claimt_id
+        and eff_dt <= claimt_sessn_tmstmp
+        and (exp_dt >= claimt_sessn_tmstmp or exp_dt is null)",
+      cycle_date,
+      ifelse(exclude_cellular,
+             "and (ip_conn_type_cd is null or ip_conn_type_cd != 'CEL')",
+             ""),
+      addr_type_cd)
+    
+    ov <- tryCatch(data.table::data.table(RJDBC::dbGetQuery(db_conn$conn, sql)),
+                   error = apm_error_handler)
+    
+    if ("error" %in% class(ov))
+      return(23)
+    
   } else {
     output_message(paste("Using Input data.frame"))
     ov <- data.table::data.table(inputDF)

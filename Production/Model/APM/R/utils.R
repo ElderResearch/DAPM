@@ -1208,3 +1208,21 @@ set_param_lgl <- function(...) {
 
   return(as.logical(return_value))
 }
+
+#' Assign a parameter or optionally fill from NRDB
+#'
+#' @param ... Arguments to pass to \code{set_param}.
+#' @return A boolean.
+#' @export
+#' @examples
+#' \dontrun{
+#' j <- set_param_chr(param = "TRAVEL_ADDR_TYPE_CD", con = db_conn$conn)
+#' }
+set_param_chr <- function(...) {
+  return_value <- set_param(...)
+
+  if ("error" %in% class(return_value))
+    return(return_value)
+
+  return(as.character(return_value))
+}

@@ -5,7 +5,7 @@
 \title{Distance Risk Module}
 \usage{
 distance_score(cycle_date = NULL, scoreTableName = "nrd.enty_score",
-  inputDF = NULL, exclude_cellular = NULL)
+  inputDF = NULL, exclude_cellular = NULL, addr_type_cd = NULL)
 }
 \arguments{
 \item{cycle_date}{The cycle date being scored}
@@ -21,6 +21,9 @@ like that in the source.}
 
 \item{exclude_cellular}{Whether or not the module should exclude records
 identified as originating from cellular IPs.}
+
+\item{addr_type_cd}{NRDB type code for the address to use in the query (e.g.,
+`RESD`, `PHYS`, etc.)}
 }
 \value{
 Returns 0 on success, >0 on failure, look at the \code{return}
@@ -28,10 +31,10 @@ Returns 0 on success, >0 on failure, look at the \code{return}
 }
 \description{
 This module is intended to replace the Location Risk Module used in Kansas
-and Idaho. New York did not find the Location Risk Module helpful because
-many of their claimants file legally from nearby states as well as Canada,
-while some places within the state may be high risk if it is far from their
-home address.
+and Idaho. New York did not find the Location Risk Module so helpful because,
+on one hand, many claimants file legally from nearby states and Canada
+while, on the other hand, some places within the state may be high risk if
+they are far from a claimant's home address.
 
 The location of the home address is pulled from the zip code given in
 \code{nrd.addr}, which is then matched with a database containing zip codes
