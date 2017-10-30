@@ -1,7 +1,7 @@
 Package: APM
 Type: Package
 Title: APM Models as Package
-Version: 1.4
+Version: 1.5
 Author: Elder Research
 Maintainer: TBD <tbd@tbd.com>
 Description: This is the R and SQL model code for Domino as a package,
@@ -21,4 +21,6 @@ Imports:
     devtools,
     geosphere
 RoxygenNote: 5.0.1
-Suggests: testthat
+Suggests:
+    testthat,
+    sbrl
